@@ -30,4 +30,5 @@
 .terraformrc
 terraform.rc
 New string
-first String For test IDE commit 
+first String For test IDE commit
+
