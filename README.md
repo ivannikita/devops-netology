@@ -29,3 +29,5 @@
 # игнорировать файлы конфигурации консоли
 .terraformrc
 terraform.rc
+New string
+first String For test IDE commit
