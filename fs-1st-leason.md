@@ -1,6 +1,35 @@
 1. Узнайте о sparse (разряженных) файлах.
 файл, в котором последовательности нулевых байтов заменены на информацию об этих последовательностях
 2. Могут ли файлы, являющиеся жесткой ссылкой на один объект, иметь разные права доступа и владельца? Почему?
+```
+root@ubuntu-20:~# ln -P /tmp/link_test ~/test
+root@ubuntu-20:~# ls -la /tmp/
+total 72
+drwxrwxrwt 12 root root  4096 Mar 25 06:43 .
+drwxr-xr-x 19 root root  4096 Jun 16  2020 ..
+drwxrwxrwt  2 root root  4096 Mar 22 13:27 .font-unix
+drwxrwxrwt  2 root root  4096 Mar 22 13:27 .ICE-unix
+-rw-r--r--  2 root root   739 Mar 25 06:43 link_test
+drwxr-xr-x  3 root root  4096 Mar 23 19:16 new
+-rw-r--r--  1 root root   182 Mar 23 11:30 sdb1.dump
+-rw-r--r--  1 root root   181 Mar 22 13:44 sdb.dump
+drwx------  3 root root  4096 Mar 24 12:48 systemd-private-53ddb8548c6a490ebb3f5f1b4d2ed3f7-fwupd.service-eF18qf
+drwx------  3 root root  4096 Mar 22 13:27 systemd-private-53ddb8548c6a490ebb3f5f1b4d2ed3f7-ntp.service-hh8gvf
+drwx------  3 root root  4096 Mar 22 13:27 systemd-private-53ddb8548c6a490ebb3f5f1b4d2ed3f7-systemd-logind.service-rnLN2h
+drwx------  3 root root  4096 Mar 22 13:27 systemd-private-53ddb8548c6a490ebb3f5f1b4d2ed3f7-systemd-resolved.service-10MZ0e
+-rw-r--r--  1 root root 12288 Mar 24 11:44 .test.swp
+drwxrwxrwt  2 root root  4096 Mar 22 13:27 .Test-unix
+drwxrwxrwt  2 root root  4096 Mar 22 13:27 .X11-unix
+drwxrwxrwt  2 root root  4096 Mar 22 13:27 .XIM-unix
+root@ubuntu-20:~# ls -la ~
+total 28
+drwx------  2 root root 4096 Mar 25 06:43 .
+drwxr-xr-x 19 root root 4096 Jun 16  2020 ..
+-rw-------  1 root root 4049 Mar 24 09:06 .bash_history
+-rw-r--r--  1 root root 3106 Dec  5  2019 .bashrc
+-rw-r--r--  1 root root  161 Dec  5  2019 .profile
+-rw-rw-rw-  2 nick root  739 Mar 25 06:43 test
+-rw-------  1 root root 1084 Mar 25 06:43 .viminfo
 да, потому что ссылка является отдельным файлом в системе и на нее можно назначить права.
 3. Сделайте vagrant destroy на имеющийся инстанс Ubuntu. Замените содержимое Vagrantfile следующим:
 ```
