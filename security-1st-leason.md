@@ -1,7 +1,7 @@
 1. Установите Bitwarden плагин для браузера. Зарегестрируйтесь и сохраните несколько паролей.
-![сайт с ssl](/images/bitwarden_install.png)
+![bitwarden_install](/images/bitwarden_install.png)
 2. Установите Google authenticator на мобильный телефон. Настройте вход в Bitwarden акаунт через Google authenticator OTP.
-![сайт с ssl](/images/bitwarden.png)
+![bitwarden](/images/bitwarden.png)
 3. Установите apache2, сгенерируйте самоподписанный сертификат, настройте тестовый сайт для работы по HTTPS.
 
 ![сайт с ssl](/images/site_ssl.png)
@@ -102,5 +102,50 @@ To see these additional updates run: apt list --upgradable
 Last login: Wed Apr  6 07:23:45 2022
 ```
 6. Переименуйте файлы ключей из задания 5. Настройте файл конфигурации SSH клиента, так чтобы вход на удаленный сервер осуществлялся по имени сервера.  
+```
+config
+Host aspia
+User nick
+HostName 192.168.1.27
+Port 22
+IdentityFile ~/.ssh/my
+  
+root@DESKTOP-NO8KIJV:~/.ssh# ls
+config  known_hosts  my  my.pub
+root@DESKTOP-NO8KIJV:~/.ssh# ssh aspia
+Enter passphrase for key '/root/.ssh/my':
+Welcome to Ubuntu 20.04.3 LTS (GNU/Linux 5.4.0-107-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri 22 Apr 2022 09:11:44 PM UTC
+
+  System load:  0.08               Processes:             123
+  Usage of /:   11.1% of 48.47GB   Users logged in:       1
+  Memory usage: 24%                IPv4 address for ens3: 192.168.1.27
+  Swap usage:   0%
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+59 updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+
+*** System restart required ***
+Last login: Sun Apr 17 20:31:41 2022 from 
+```
 
 7. Соберите дамп трафика утилитой tcpdump в формате pcap, 100 пакетов. Откройте файл pcap в Wireshark.
+```
+vagrant@ubuntu-20:~$ sudo tcpdump -c 100 -w ib.pcap
+tcpdump: listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes
+100 packets captured
+110 packets received by filter
+0 packets dropped by kernel
+```
+![сайт с ssl](/images/wireshark.png)
