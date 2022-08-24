@@ -45,3 +45,31 @@ Gitlab сервер для реализации CI/CD процессов и пр
 Подключитесь во второй контейнер и отобразите листинг и содержание файлов в /data контейнера.
 
 ![Listfiles](/images/file_list.jpg)
+```
+[nivanov@localhost mynginx]$ docker pull centos
+Using default tag: latest
+latest: Pulling from library/centos
+a1d0c7532777: Pull complete 
+Digest: sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177
+Status: Downloaded newer image for centos:latest
+docker.io/library/centos:latest
+[nivanov@localhost mynginx]$ docker pull debian
+Using default tag: latest
+latest: Pulling from library/debian
+1671565cc8df: Pull complete 
+Digest: sha256:d52921d97310d0bd48dab928548ef539d5c88c743165754c57cfad003031386c
+Status: Downloaded newer image for debian:latest
+docker.io/library/debian:latest
+[nivanov@localhost mynginx]$ sudo mkdir /data
+[nivanov@localhost ~]$ docker run -it -v /data:/data centos
+[root@a41dc4d37205 /]# 
+[root@a41dc4d37205 /]# vi /data/first_file
+[root@a41dc4d37205 /]# ls /data/
+first_file
+[root@a41dc4d37205 /]# exit
+[nivanov@localhost ~]$ vi /data/second_file
+[nivanov@localhost ~]$ docker run -it -v /data:/data debian
+root@d542c5ec7fbe:/# ls /data
+first_file  second_file
+root@d542c5ec7fbe:/# exit
+```
