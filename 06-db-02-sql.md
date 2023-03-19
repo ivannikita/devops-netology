@@ -154,7 +154,7 @@ docker stop netology_postgres
 
 docker run --name netology_postgres1  -p 5432:5432 -e POSTGRES_PASSWORD=pgpwdnet -e PGDATA="/var/lib/postgresql/data/pgdata" -v /pgdata1:/var/lib/postgresql/data -v /backup:/backup -d postgres:12
 
-docker exec -it netology_postgres sh
+docker exec -it netology_postgres1 sh
 
 psql -U postgres
 create database test_db;
