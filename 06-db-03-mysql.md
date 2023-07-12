@@ -1,8 +1,3 @@
-## 1. Используя Docker, поднимите инстанс PostgreSQL (версию 12) c 2 volume, в который будут складываться данные БД и бэкапы.
-Приведите получившуюся команду или docker-compose-манифест.
-```docker
-docker run --name netology_postgres  -p 5432:5432 -e POSTGRES_PASSWORD=pgpwdnet -e PGDATA="/var/lib/postgresql/data/pgdata" -v /pgdata:/var/lib/postgresql/data -v /backup:/backup -d postgres:12
-```
 ## Задача 1
 Используя Docker, поднимите инстанс MySQL (версию 8). Данные БД сохраните в volume.
 
