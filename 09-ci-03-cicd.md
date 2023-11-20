@@ -16,6 +16,7 @@
 8. Запустите анализатор повторно — проверьте, что QG пройдены успешно.
 9. Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
 <img src="images/0903_5.png"/>
+
 ## Знакомство с Nexus
 
 ### Основная часть
@@ -33,7 +34,7 @@
 3. Проверьте, что все файлы загрузились успешно.
 <img src="images/0903_8.png"/>  
 4. В ответе пришлите файл `maven-metadata.xml` для этого артефекта.
-
+https://github.com/ivannikita/devops-netology/blob/terraform-03/maven-metadata.xml
 ### Знакомство с Maven
 
 ### Основная часть
@@ -45,3 +46,4 @@
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
 <img src="images/0903_11.png"/> 
 4. В ответе пришлите исправленный файл `pom.xml`.
+https://github.com/ivannikita/devops-netology/blob/terraform-03/pom.xml
